@@ -127,3 +127,27 @@ body {
   display: inline;
   margin: 5px;
 }
+
+.party-popper-left {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  animation: fadeIn 500ms ease-in;
+}
+
+.party-popper-right {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: rotateY(180deg);
+  animation: fadeIn 500ms ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

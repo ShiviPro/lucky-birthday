@@ -65,15 +65,43 @@ let formLink = document.querySelector("#form-link");
 
 let heroText = document.querySelector("#hero-txt");
 
+let partyPopperLeft = document.createElement("div");
+partyPopperLeft.innerHTML = `
+  <svg class="party-popper-left">
+      <use xlink:href="#party-popper" />
+  </svg>`;
+
+let partyPopperRight = document.createElement("div");
+partyPopperRight.innerHTML = `
+  <svg class="party-popper-right">
+      <use xlink:href="#party-popper" />
+  </svg>`;
+
+let congratDiv = document.createElement("div");
+congratDiv.classList.add("congrats");
+congratDiv.innerHTML = `
+  <h1 class="congrats-text">Congratulations ! Your Birthday is Lucky.</h1>
+`;
+
 formLink.addEventListener("click", (event) => {
   event.preventDefault();
   heroText.style.display = "none";
   contentDiv.appendChild(form);
+  partyPopperLeft.remove();
+  partyPopperRight.remove();
+  congratDiv.remove();
+
   let dob = document.querySelector("#dob__input");
   let luckyNo = document.querySelector("#lucky-num__input");
   let checkBtn = document.querySelector("#check-btn");
 
+  dob.value = "";
+  luckyNo.value = "";
+
   checkBtn.addEventListener("click", (event) => {
+    partyPopperLeft.remove();
+    partyPopperRight.remove();
+    congratDiv.remove();
     let dobVal = dob.value;
     let luckyNoVal = parseInt(luckyNo.value);
     let numbers = "0123456789";
@@ -87,7 +115,10 @@ formLink.addEventListener("click", (event) => {
       }
     }
     if (digitSum % luckyNoVal === 0) {
-      alert('Your Birthday is "LUCKY" ');
+      document.body.appendChild(partyPopperLeft);
+      document.body.appendChild(partyPopperRight);
+      if (document.querySelectorAll(".congrats").length === 0)
+        form.appendChild(congratDiv);
     }
   });
   let closeBtn = document.querySelector("#close-btn");
@@ -95,5 +126,7 @@ formLink.addEventListener("click", (event) => {
   closeBtn.addEventListener("click", (event) => {
     heroText.style.display = "block";
     form.remove();
+    partyPopperLeft.remove();
+    partyPopperRight.remove();
   });
 });
