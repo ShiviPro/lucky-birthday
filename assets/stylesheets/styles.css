@@ -1,3 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap");
+:root {
+  --white: #dff9fb;
+  --black: #2c3e50;
+  --green: #85ffbd;
+  --yellow: #fffb7d;
+}
+
 body {
+  height: 100vh;
+  display: grid;
   text-align: center;
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  overflow: hidden;
+  color: var(--black);
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.content {
+  margin: auto;
+}
+
+.brand-name {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.hero-txt {
+  font-size: 1.5rem;
+}
+
+.form-link {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 600;
+}
+
+.dob,
+.lucky-num {
+  margin: 20px 0;
+}
+
+.dob__heading,
+.lucky-num__heading {
+  font-size: 1.5rem;
+}
+
+.dob__input,
+.lucky-num__input {
+  width: 300px;
+  margin: 20px;
+  font-size: 1.5rem;
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  text-align: center;
+  font-family: inherit;
+  color: inherit;
+  background-color: var(--white);
+  outline: none;
+  padding: 10px;
+}
+
+.check-btn {
+  font-size: 1.5rem;
+  padding: 10px;
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  background-color: var(--yellow);
+  transition: background-color 350ms;
+  font-family: inherit;
+}
+
+.check-btn:hover {
+  background-color: var(--green);
 }
