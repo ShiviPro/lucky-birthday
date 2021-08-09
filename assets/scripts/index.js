@@ -6,6 +6,11 @@ form.innerHTML = `
 <svg class="close-btn" id="close-btn">
     <use xlink:href="#close">
 </svg>
+
+<div>
+    <p class="privacy-notice"><span class="underline">Privacy Notice:</span> We do not store any of your data. The data requested here is just used for the sake of input.</p>
+</div>
+
 <div class="dob">
     <label class="dob__heading" for="dob">Select your date of birth</label>
     <br />
@@ -26,6 +31,34 @@ form.innerHTML = `
 </div>
 
 <button class="check-btn" id="check-btn">Check</button>
+
+<footer class="footer">
+    <section class="footer__main-content">
+      <ul class="footer__list">
+        <li>
+          <a class="footer__link" href="https://github.com/ShiviPro"
+            target="_blank" rel="noopener noreferrer"><img alt="github-logo" src="./assets/images/github.png"
+          /></a>
+        </li>
+        <li>
+          <a class="footer__link" href="https://www.linkedin.com/in/shivam-tewari-9286b1171/"
+          target="_blank" rel="noopener noreferrer"><img alt="linkedin-logo" src="./assets/images/linkedin.png"
+          /></a>
+        </li>
+        <li>
+          <a class="footer__link" href="https://twitter.com/ShiviPro"
+          target="_blank" rel="noopener noreferrer"><img alt="twitter-logo" src="./assets/images/twitter.png"
+          /></a>
+        </li>
+        <li>
+          <a class="footer__link" href="https://shivamtewari.netlify.app/"
+          target="_blank" rel="noopener noreferrer"><img alt="portfolio-logo" src="./assets/images/briefcase.png"
+          /></a>
+        </li>
+      </ul>
+      <p class="footer__copyright-info">©2021 | Shivam Tewari</p>
+    </section>
+  </footer>
 `;
 
 let formLink = document.querySelector("#form-link");
