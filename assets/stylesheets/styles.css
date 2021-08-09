@@ -43,6 +43,7 @@ body {
   padding: 20px;
   border: 2px solid var(--black);
   border-radius: 10px;
+  animation: fadeIn 400ms ease-in;
 }
 
 .close-btn {
