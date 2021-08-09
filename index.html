@@ -13,34 +13,34 @@
 
     <link rel="stylesheet" href="./assets/stylesheets/styles.css" />
     <title>Lucky Birthday</title>
+
+    <!-- Inline SVG/s -->
+    <svg
+      id="svg"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="0"
+      height="0"
+    >
+      <symbol id="close" viewBox="0 0 400 400">
+        <path
+          id="path0"
+          d="M23.237 23.247 C 10.457 36.033,0.000 46.843,0.000 47.269 C 0.000 47.695,34.189 82.234,75.975 124.022 L 151.950 200.000 75.975 275.978 C 34.189 317.766,-0.000 352.309,-0.000 352.741 C -0.000 353.760,46.250 400.000,47.269 400.000 C 47.695 400.000,82.234 365.811,124.022 324.025 L 200.000 248.050 275.978 324.025 C 317.766 365.811,352.309 400.000,352.741 400.000 C 353.760 400.000,400.000 353.750,400.000 352.731 C 400.000 352.305,365.811 317.766,324.025 275.978 L 248.050 200.000 324.025 124.022 C 365.811 82.234,400.000 47.695,400.000 47.269 C 400.000 46.250,353.760 0.000,352.741 0.000 C 352.309 0.000,317.766 34.189,275.978 75.975 L 200.000 151.950 124.022 75.975 C 82.234 34.189,47.691 0.000,47.259 0.000 C 46.828 0.000,36.018 10.461,23.237 23.247 "
+          stroke="none"
+          fill="#2c3e50"
+          fill-rule="evenodd"
+        />
+      </symbol>
+    </svg>
   </head>
   <body>
-    <div class="content">
+    <div class="content" id="content">
       <h1 class="brand-name">Is Your Birthday Lucky ?</h1>
-      <p class="hero-txt">
-        Click <a class="form-link" href="">here</a> to find out !
+      <p class="hero-txt" id="hero-txt">
+        Click
+        <a class="form-link" id="form-link" href="">here</a> to find out !
       </p>
-
-      <div class="dob">
-        <label class="dob__heading" for="dob">Select your date of birth</label>
-        <br />
-        <input class="dob__input" id="dob__input" type="date" name="dob" />
-      </div>
-
-      <div class="lucky-num">
-        <label class="lucky-num__heading" for="lucky-num"
-          >Enter your lucky number</label
-        >
-        <br />
-        <input
-          class="lucky-num__input"
-          id="lucky-num__input"
-          type="number"
-          name="lucky-num"
-        />
-      </div>
-
-      <button class="check-btn" id="check-btn">Check</button>
     </div>
 
     <script src="./assets/scripts/index.js"></script>

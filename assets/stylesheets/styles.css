@@ -17,6 +17,18 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
+.close-btn {
+  max-width: 35px;
+  max-height: 35px;
+  position: relative;
+  left: 225px;
+  cursor: pointer;
+}
+
+#svg {
+  display: none;
+}
+
 .content {
   margin: auto;
 }
@@ -34,6 +46,14 @@ body {
   text-decoration: none;
   color: var(--black);
   font-weight: 600;
+}
+
+.form {
+  background-color: inherit;
+  z-index: 1;
+  padding: 20px;
+  border: 2px solid var(--black);
+  border-radius: 10px;
 }
 
 .dob,
