@@ -32,6 +32,8 @@ form.innerHTML = `
 
 <button class="check-btn" id="check-btn">Check</button>
 
+<div id="res"></div>
+
 <footer class="footer">
     <section class="footer__main-content">
       <ul class="footer__list">
@@ -81,18 +83,19 @@ let congratDiv = document.createElement("div");
 congratDiv.classList.add("congrats");
 congratDiv.innerHTML = `
   <h1 class="congrats-text">Congratulations ! Your Birthday is Lucky.</h1>
-`;
+  `;
 
 let unluckyDiv = document.createElement("div");
 unluckyDiv.classList.add("unlucky");
 unluckyDiv.innerHTML = `
   <h1 class="unlucky-text">We're sorry to say that it's unlucky :(</h1>
-`;
+    `;
 
 formLink.addEventListener("click", (event) => {
   event.preventDefault();
   heroText.style.display = "none";
   contentDiv.appendChild(form);
+  var resDiv = document.querySelector("#res");
   partyPopperLeft.remove();
   partyPopperRight.remove();
   congratDiv.remove();
@@ -126,10 +129,10 @@ formLink.addEventListener("click", (event) => {
       document.body.appendChild(partyPopperLeft);
       document.body.appendChild(partyPopperRight);
       if (document.querySelectorAll(".congrats").length === 0)
-        form.appendChild(congratDiv);
+        resDiv.appendChild(congratDiv);
     } else {
       if (document.querySelectorAll(".unlucky").length === 0)
-        form.appendChild(unluckyDiv);
+        resDiv.appendChild(unluckyDiv);
     }
   });
   let closeBtn = document.querySelector("#close-btn");
