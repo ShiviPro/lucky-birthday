@@ -128,11 +128,9 @@ formLink.addEventListener("click", (event) => {
     if (digitSum % luckyNoVal === 0) {
       document.body.appendChild(partyPopperLeft);
       document.body.appendChild(partyPopperRight);
-      if (document.querySelectorAll(".congrats").length === 0)
-        resDiv.appendChild(congratDiv);
+      resDiv.appendChild(congratDiv);
     } else {
-      if (document.querySelectorAll(".unlucky").length === 0)
-        resDiv.appendChild(unluckyDiv);
+      resDiv.appendChild(unluckyDiv);
     }
   });
   let closeBtn = document.querySelector("#close-btn");
