@@ -82,14 +82,17 @@ partyPopperRight.innerHTML = `
 let congratDiv = document.createElement("div");
 congratDiv.classList.add("congrats");
 congratDiv.innerHTML = `
-  <h1 class="congrats-text">Congratulations ! Your Birthday is Lucky.</h1>
+  <h1>Congratulations ! Your Birthday is Lucky.</h1>
   `;
 
 let unluckyDiv = document.createElement("div");
 unluckyDiv.classList.add("unlucky");
 unluckyDiv.innerHTML = `
-  <h1 class="unlucky-text">We're sorry to say that it's unlucky :(</h1>
+  <h1>We're sorry to say that it's unlucky :(</h1>
     `;
+
+let errorDiv = document.createElement("div");
+errorDiv.classList.add("error");
 
 formLink.addEventListener("click", (event) => {
   event.preventDefault();
@@ -100,6 +103,7 @@ formLink.addEventListener("click", (event) => {
   partyPopperRight.remove();
   congratDiv.remove();
   unluckyDiv.remove();
+  errorDiv.remove();
 
   let dob = document.querySelector("#dob__input");
   let luckyNo = document.querySelector("#lucky-num__input");
@@ -113,24 +117,37 @@ formLink.addEventListener("click", (event) => {
     partyPopperRight.remove();
     congratDiv.remove();
     unluckyDiv.remove();
+    errorDiv.remove();
     let dobVal = dob.value;
     let luckyNoVal = parseInt(luckyNo.value);
-    let numbers = "0123456789";
-    let digitSum = 0;
-    for (let charIndex = 0; charIndex < dobVal.length; charIndex++) {
-      let char = dobVal.charAt(charIndex);
-
-      if (numbers.indexOf(char) > -1) {
-        let digit = parseInt(char);
-        digitSum += digit;
-      }
-    }
-    if (digitSum % luckyNoVal === 0) {
-      document.body.appendChild(partyPopperLeft);
-      document.body.appendChild(partyPopperRight);
-      resDiv.appendChild(congratDiv);
+    console.log(dobVal);
+    if (dobVal.trim() === "") {
+      errorDiv.innerHTML = `<h1>Please enter a valid date</h1>`;
+      resDiv.appendChild(errorDiv);
+    } else if (luckyNo.value === "") {
+      errorDiv.innerHTML = `
+      <h1>Please enter a lucky number</h1>
+      <h1>It helps us to give you an accurate result.</h1>
+      `;
+      resDiv.appendChild(errorDiv);
     } else {
-      resDiv.appendChild(unluckyDiv);
+      let numbers = "0123456789";
+      let digitSum = 0;
+      for (let charIndex = 0; charIndex < dobVal.length; charIndex++) {
+        let char = dobVal.charAt(charIndex);
+
+        if (numbers.indexOf(char) > -1) {
+          let digit = parseInt(char);
+          digitSum += digit;
+        }
+      }
+      if (digitSum % luckyNoVal === 0) {
+        document.body.appendChild(partyPopperLeft);
+        document.body.appendChild(partyPopperRight);
+        resDiv.appendChild(congratDiv);
+      } else {
+        resDiv.appendChild(unluckyDiv);
+      }
     }
   });
   let closeBtn = document.querySelector("#close-btn");

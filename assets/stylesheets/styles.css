@@ -145,7 +145,8 @@ body {
 }
 
 .congrats,
-.unlucky {
+.unlucky,
+.error {
   animation: fadeIn 500ms ease-in;
 }
 
