@@ -8,15 +8,14 @@
 }
 
 html {
-  height: 100vh;
   display: grid;
+  min-height: 100vh;
 }
 
 body {
   text-align: center;
   background-color: #85ffbd;
   background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
-  overflow: hidden;
   color: var(--black);
   font-family: "Josefin Sans", sans-serif;
   margin: auto;
