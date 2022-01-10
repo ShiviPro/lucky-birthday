@@ -1,6 +1,6 @@
-let contentDiv = document.querySelector("#content");
+const contentDiv = document.querySelector("#content");
 
-let form = document.createElement("div");
+const form = document.createElement("div");
 form.classList.add("form");
 form.innerHTML = `
 <svg class="close-btn" id="close-btn">
@@ -63,64 +63,63 @@ form.innerHTML = `
   </footer>
 `;
 
-let formLink = document.querySelector("#form-link");
+const formLink = document.querySelector("#form-link");
 
-let heroText = document.querySelector("#hero-txt");
+const heroText = document.querySelector("#hero-txt");
 
-let partyPopperLeft = document.createElement("div");
+const partyPopperLeft = document.createElement("div");
 partyPopperLeft.innerHTML = `
   <svg class="party-popper-left">
       <use xlink:href="#party-popper" />
   </svg>`;
 
-let partyPopperRight = document.createElement("div");
+const partyPopperRight = document.createElement("div");
 partyPopperRight.innerHTML = `
   <svg class="party-popper-right">
       <use xlink:href="#party-popper" />
   </svg>`;
 
-let congratDiv = document.createElement("div");
+const congratDiv = document.createElement("div");
 congratDiv.classList.add("congrats");
 congratDiv.innerHTML = `
   <h1>Congratulations ! Your Birthday is Lucky.</h1>
   `;
 
-let unluckyDiv = document.createElement("div");
+const unluckyDiv = document.createElement("div");
 unluckyDiv.classList.add("unlucky");
 unluckyDiv.innerHTML = `
   <h1>We're sorry to say that it's unlucky :(</h1>
     `;
 
-let errorDiv = document.createElement("div");
+const errorDiv = document.createElement("div");
 errorDiv.classList.add("error");
 
-formLink.addEventListener("click", (event) => {
+formLink.addEventListener("click", event => {
   event.preventDefault();
   heroText.style.display = "none";
   contentDiv.appendChild(form);
-  var resDiv = document.querySelector("#res");
+  const resDiv = document.querySelector("#res");
   partyPopperLeft.remove();
   partyPopperRight.remove();
   congratDiv.remove();
   unluckyDiv.remove();
   errorDiv.remove();
 
-  let dob = document.querySelector("#dob__input");
-  let luckyNo = document.querySelector("#lucky-num__input");
-  let checkBtn = document.querySelector("#check-btn");
+  const dob = document.querySelector("#dob__input");
+  const luckyNo = document.querySelector("#lucky-num__input");
+  const checkBtn = document.querySelector("#check-btn");
 
   dob.value = "";
   luckyNo.value = "";
 
-  checkBtn.addEventListener("click", (event) => {
+  checkBtn.addEventListener("click", () => {
     partyPopperLeft.remove();
     partyPopperRight.remove();
     congratDiv.remove();
     unluckyDiv.remove();
     errorDiv.remove();
-    let dobVal = dob.value;
-    let luckyNoVal = parseInt(luckyNo.value);
-    console.log(dobVal);
+    const dobVal = dob.value;
+    const luckyNoVal = parseInt(luckyNo.value);
     if (dobVal.trim() === "") {
       errorDiv.innerHTML = `<h1>Please enter a valid date</h1>`;
       resDiv.appendChild(errorDiv);
@@ -131,13 +130,13 @@ formLink.addEventListener("click", (event) => {
       `;
       resDiv.appendChild(errorDiv);
     } else {
-      let numbers = "0123456789";
+      const WHOLE_NUMS = "0123456789";
       let digitSum = 0;
       for (let charIndex = 0; charIndex < dobVal.length; charIndex++) {
-        let char = dobVal.charAt(charIndex);
+        const char = dobVal.charAt(charIndex);
 
-        if (numbers.indexOf(char) > -1) {
-          let digit = parseInt(char);
+        if (WHOLE_NUMS.indexOf(char) > -1) {
+          const digit = parseInt(char);
           digitSum += digit;
         }
       }
@@ -145,14 +144,13 @@ formLink.addEventListener("click", (event) => {
         document.body.appendChild(partyPopperLeft);
         document.body.appendChild(partyPopperRight);
         resDiv.appendChild(congratDiv);
-      } else {
-        resDiv.appendChild(unluckyDiv);
-      }
+      } else resDiv.appendChild(unluckyDiv);
     }
   });
-  let closeBtn = document.querySelector("#close-btn");
+  
+  const closeBtn = document.querySelector("#close-btn");
 
-  closeBtn.addEventListener("click", (event) => {
+  closeBtn.addEventListener("click", () => {
     heroText.style.display = "block";
     form.remove();
     partyPopperLeft.remove();
